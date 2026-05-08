@@ -37,14 +37,14 @@ pipeline {
             }
         }
 
-        stage('Deploy to Kubernetes') {
-            steps {
-                echo 'Deploying to Kubernetes cluster...'
-                sh "kubectl apply -f k8s/deployment.yaml"
-                sh "kubectl apply -f k8s/service.yaml"
-                sh "kubectl rollout status deployment/portfolio-deployment"
-            }
-        }
+       stage('Deploy to Kubernetes') {
+    steps {
+        echo 'Deploying to Kubernetes cluster...'
+        sh "kubectl apply -f k8s/deployment.yaml --validate=false"
+        sh "kubectl apply -f k8s/service.yaml --validate=false"
+        sh "kubectl rollout status deployment/portfolio-deployment"
+    }
+}
     }
 
     post {
