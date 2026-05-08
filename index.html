@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Izzat Zaidi — DevOps Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f0f2f5;
+      color: #1a1a2e;
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      background: #fff;
+      padding: 0 60px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 64px;
+      border-bottom: 1px solid #e8e8e8;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .nav-name {
+      font-weight: 700;
+      font-size: 1rem;
+      color: #1a1a2e;
+      letter-spacing: -0.3px;
+    }
+
+    .nav-links { display: flex; gap: 32px; }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #666;
+      font-size: 0.875rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: #e94560; }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #1a1a2e 0%, #16213e 60%, #0f3460 100%);
+      color: #fff;
+      padding: 80px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 40px;
+    }
+
+    .hero-left { max-width: 560px; }
+
+    .hero-badge {
+      display: inline-block;
+      background: rgba(233,69,96,0.15);
+      border: 1px solid rgba(233,69,96,0.4);
+      color: #e94560;
+      font-size: 0.75rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: -1px;
+      line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .hero h1 span { color: #e94560; }
+
+    .hero p {
+      color: #a0aec0;
+      font-size: 1rem;
+      line-height: 1.75;
+      margin-bottom: 32px;
+    }
+
+    .hero-btns { display: flex; gap: 12px; }
+
+    .btn {
+      padding: 11px 24px;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      background: #e94560;
+      color: #fff;
+    }
+
+    .btn-primary:hover { background: #c73652; transform: translateY(-1px); }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: #fff;
+      border: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+    /* Stats strip */
+    .hero-stats {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px;
+      padding: 18px 24px;
+      text-align: center;
+      min-width: 130px;
+    }
+
+    .stat-num {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #e94560;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+      color: #a0aec0;
+      font-weight: 500;
+    }
+
+    /* MAIN */
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 48px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 36px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.06), 0 4px 16px rgba(0,0,0,0.04);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 24px;
+    }
+
+    .card-dot {
+      width: 8px;
+      height: 8px;
+      background: #e94560;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      letter-spacing: -0.3px;
+    }
+
+    /* ABOUT */
+    #about p {
+      color: #555;
+      font-size: 0.95rem;
+      line-height: 1.8;
+    }
+
+    /* SKILLS */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 12px;
+    }
+
+    .skill-card {
+      background: #f8f9fb;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 18px 20px;
+      transition: all 0.2s;
+    }
+
+    .skill-card:hover {
+      border-color: #e94560;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(233,69,96,0.08);
+    }
+
+    .skill-card h3 {
+      font-size: 0.875rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 6px;
+    }
+
+    .skill-card p {
+      font-size: 0.8rem;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* EDUCATION */
+    .edu-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 20px;
+      background: #f8f9fb;
+      border-radius: 10px;
+      border: 1px solid #eee;
+    }
+
+    .edu-item h3 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+    .edu-item p { font-size: 0.875rem; color: #666; }
+    .edu-date {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #e94560;
+      background: rgba(233,69,96,0.08);
+      padding: 4px 12px;
+      border-radius: 20px;
+      white-space: nowrap;
+    }
+
+    /* PROJECT */
+    .project-card {
+      background: #f8f9fb;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      padding: 24px;
+    }
+
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 14px;
+    }
+
+    .tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      color: #0f3460;
+      background: rgba(15,52,96,0.08);
+      padding: 3px 10px;
+      border-radius: 4px;
+      letter-spacing: 0.3px;
+    }
+
+    .project-card h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 10px;
+      color: #1a1a2e;
+    }
+
+    .project-card p {
+      font-size: 0.875rem;
+      color: #666;
+      line-height: 1.75;
+    }
+
+    /* CONTACT */
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 18px 20px;
+      background: #f8f9fb;
+      border: 1px solid #eee;
+      border-radius: 10px;
+      text-decoration: none;
+      color: inherit;
+      transition: all 0.2s;
+    }
+
+    .contact-item:hover {
+      border-color: #e94560;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(233,69,96,0.08);
+    }
+
+    .contact-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(233,69,96,0.1);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      flex-shrink: 0;
+    }
+
+    .contact-label { font-size: 0.72rem; color: #999; font-weight: 500; margin-bottom: 2px; }
+    .contact-value { font-size: 0.875rem; font-weight: 600; color: #1a1a2e; }
+
+    /* FOOTER */
+    footer {
+      background: #1a1a2e;
+      color: #666;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.8rem;
+    }
+
+    footer span { color: #e94560; }
+
+    @media (max-width: 700px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 48px 24px; flex-direction: column; }
+      .hero h1 { font-size: 2.2rem; }
+      .hero-stats { flex-direction: row; flex-wrap: wrap; }
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-name">Izzat Zaidi</div>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#skills">Skills</a>
+    <a href="#education">Education</a>
+    <a href="#projects">Projects</a>
+    <a href="#contact">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-badge">MSc Computer Science · LSBU</div>
+    <h1>Aspiring <span>DevOps</span><br>Engineer</h1>
+    <p>Passionate about cloud-native technologies, container orchestration, and building automated CI/CD pipelines that ship software reliably.</p>
+    <div class="hero-btns">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="#contact" class="btn btn-secondary">Contact Me</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat">
+      <div class="stat-num">4</div>
+      <div class="stat-label">Pipeline Stages</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">2</div>
+      <div class="stat-label">K8s Replicas</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">0</div>
+      <div class="stat-label">Downtime</div>
+    </div>
+  </div>
+</div>
+
+<!-- MAIN -->
+<main>
+
+  <!-- ABOUT -->
+  <div class="card" id="about">
+    <div class="card-header">
+      <div class="card-dot"></div>
+      <h2>About Me</h2>
+    </div>
+    <p>I am a postgraduate student studying Container Orchestration and DevOps practices at London South Bank University. I am passionate about cloud-native technologies, automation, and building reliable deployment pipelines that bridge the gap between development and operations.</p>
+  </div>
+
+  <!-- SKILLS -->
+  <div class="card" id="skills">
+    <div class="card-header">
+      <div class="card-dot"></div>
+      <h2>Technical Skills</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-card">
+        <h3>Version Control</h3>
+        <p>Git, GitHub, Branching Strategies</p>
+      </div>
+      <div class="skill-card">
+        <h3>Containerisation</h3>
+        <p>Docker, Dockerfile, Docker Hub</p>
+      </div>
+      <div class="skill-card">
+        <h3>Orchestration</h3>
+        <p>Kubernetes, Minikube, kubectl</p>
+      </div>
+      <div class="skill-card">
+        <h3>CI/CD</h3>
+        <p>Jenkins, Pipeline as Code</p>
+      </div>
+      <div class="skill-card">
+        <h3>Cloud & Networking</h3>
+        <p>AWS, Nginx, Linux, Bash</p>
+      </div>
+      <div class="skill-card">
+        <h3>Programming</h3>
+        <p>Python, HTML, CSS, JavaScript</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="card" id="education">
+    <div class="card-header">
+      <div class="card-dot"></div>
+      <h2>Education</h2>
+    </div>
+    <div class="edu-item">
+      <div>
+        <h3>MSc Computer Science</h3>
+        <p>London South Bank University</p>
+      </div>
+      <span class="edu-date">2025 – 2026</span>
+    </div>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="card" id="projects">
+    <div class="card-header">
+      <div class="card-dot"></div>
+      <h2>Projects</h2>
+    </div>
+    <div class="project-card">
+      <div class="project-tags">
+        <span class="tag">Git</span>
+        <span class="tag">Docker</span>
+        <span class="tag">Jenkins</span>
+        <span class="tag">Kubernetes</span>
+        <span class="tag">AWS EC2</span>
+        <span class="tag">Nginx</span>
+      </div>
+      <h3>Cloud-Native CI/CD Pipeline</h3>
+      <p>Designed and implemented a full CI/CD pipeline using Git, Docker, Jenkins, and Kubernetes to automatically build, containerise, and deploy a web application to a Kubernetes cluster running on AWS EC2 with zero-downtime rolling updates.</p>
+    </div>
+  </div>
+
+  <!-- CONTACT -->
+  <div class="card" id="contact">
+    <div class="card-header">
+      <div class="card-dot"></div>
+      <h2>Contact</h2>
+    </div>
+    <div class="contact-grid">
+      <a href="mailto:student@lsbu.ac.uk" class="contact-item">
+        <div class="contact-icon">✉</div>
+        <div>
+          <div class="contact-label">Email</div>
+          <div class="contact-value">student@lsbu.ac.uk</div>
+        </div>
+      </a>
+      <a href="https://github.com/izzatzaidi" target="_blank" class="contact-item">
+        <div class="contact-icon">⌥</div>
+        <div>
+          <div class="contact-label">GitHub</div>
+          <div class="contact-value">github.com/izzatzaidi</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+</main>
+
+<footer>
+  © 2026 <span>Izzat Zaidi</span> · Built with <span>Nginx</span> · Deployed via <span>Kubernetes</span>
+</footer>
+
+</body>
+</html>
